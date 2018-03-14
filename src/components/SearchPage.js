@@ -44,7 +44,6 @@ export default class SearchPage extends Component<{}> {
   _handleResponse = (response) => {
     this.setState({ isLoading: false, message: ''});
     if (response.trackmatches.track.length > 0) {
-      // console.log(response.trackmatches.track);
       this.props.navigator.push({
         title: 'Results',
         component: SearchResults,
@@ -92,7 +91,7 @@ export default class SearchPage extends Component<{}> {
 		   			title='Go'
 		   		/>
 	   		</View>
-	   		<Image source={require('./Resources/logo.png')} style={styles.image}/>
+	   		<Image source={require('../images/logo.png')} style={styles.image}/>
         {spinner}
         <Text style={styles.description}>{this.state.message}</Text>
       	</View>

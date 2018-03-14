@@ -16,6 +16,7 @@ import {
   Image,
 } from 'react-native';
 import SearchPage from './SearchPage';
+import HomePage from './HomePage';
 
 type Props = {};
 // to disable the warning yellow box
@@ -38,6 +39,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
   },
   welcome: {
     fontSize: 20,
