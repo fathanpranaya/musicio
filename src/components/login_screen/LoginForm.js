@@ -58,7 +58,7 @@ export default class LoginForm extends Component {
     render() {
         return (
             <Card>
-                <CardSection style={styles.loginFormContainer}>
+                <CardSection>
                     <Input
                         value={this.state.email}
                         onChangeText={email => this.setState({email})}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
-import { Button, Card, CardSection } from "../common";
+import { Button } from "../common";
 import firebase from 'firebase';
 
 export default class AlbumList extends Component {
@@ -31,17 +31,10 @@ export default class AlbumList extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <Card>
-                    <CardSection>
-                        <Button onPress={() => firebase.auth().signOut()}>
-                            Log out
-                        </Button>
-                    </CardSection>
-                </Card>
+            <ScrollView style={{marginBottom: 220}}>
                 {this._renderAlbums()}
             </ScrollView>
-        )
-            ;
+        );
     }
 }
+

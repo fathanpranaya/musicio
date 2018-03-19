@@ -10,6 +10,7 @@ import LoginPage from './components/login_screen/LoginPage';
 import firebase from 'firebase'
 import HomePage from "./components/home_screen/HomePage";
 import { Spinner, Header } from "./components/common";
+import { TechPage } from "./components/tech_screen/TechPage";
 
 // to disable the warning yellow box
 console.disableYellowBox = true;
@@ -54,7 +55,6 @@ export default class App extends Component {
                 return (
                     <View>
                         <Header>Music IO</Header>
-
                         <Spinner size="large"/>
                     </View>
                 );
@@ -63,9 +63,10 @@ export default class App extends Component {
 
     render() {
         return (
-            <View>
-                {this._renderContent()}
-            </View>
+            //<View>
+            // {this._renderContent()}
+            // </View>
+            <TechPage/>
         );
     }
 }
