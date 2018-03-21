@@ -1,16 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import LoginPage from './components/login_screen/LoginPage';
 import firebase from 'firebase'
 import HomePage from "./components/home_screen/HomePage";
 import { Spinner, Header } from "./components/common";
-import { TechPage } from "./components/tech_screen/TechPage";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 
 // to disable the warning yellow box
 console.disableYellowBox = true;
@@ -21,17 +17,18 @@ export default class App extends Component {
         this.state = {
             loggedIn: null,
         }
+        this.store = createStore(reducers);
     }
 
     componentWillMount() {
         firebase.initializeApp(
             {
-                apiKey: "AIzaSyDKqz0rj8FPomk6cgt44fVaQUsiJFxOj-4",
-                authDomain: "millenuum-46a05.firebaseapp.com",
-                databaseURL: "https://millenuum-46a05.firebaseio.com",
-                projectId: "millenuum-46a05",
-                storageBucket: "millenuum-46a05.appspot.com",
-                messagingSenderId: "902822249057"
+                apiKey: 'AIzaSyDKqz0rj8FPomk6cgt44fVaQUsiJFxOj-4',
+                authDomain: 'millenuum-46a05.firebaseapp.com',
+                databaseURL: 'https://millenuum-46a05.firebaseio.com',
+                projectId: 'millenuum-46a05',
+                storageBucket: 'millenuum-46a05.appspot.com',
+                messagingSenderId: '902822249057'
             }
         );
 
@@ -63,10 +60,13 @@ export default class App extends Component {
 
     render() {
         return (
-            //<View>
-            // {this._renderContent()}
-            // </View>
-            <TechPage/>
+            <Provider store={this.store}>
+                <View>
+                    <Text>
+                        Hello!
+                    </Text>
+                </View>
+            </Provider>
         );
     }
 }

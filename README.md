@@ -55,5 +55,23 @@ class Header extends Component {
 
 > When we need to update what a component shows, call `this.setState` not `this.state`
 
-## Boiler Plate
-> To be defined...
+## Generate React Native app icons
+
+### Installation
+```
+npm install -g yo generator-rn-toolbox
+```
+
+```
+brew install imagemagick
+```
+
+### Usage
+* Have a single icon file (200x200px is sufficient).
+* In project directory, run:
+```
+yo -rn-toolbox:assets --icon <path to the icon>
+#example: 
+yo rn-toolbox:assets --icon ../icon.png
+```
+* Set the icon from XCode or Android Studio
