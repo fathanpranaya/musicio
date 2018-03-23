@@ -10,8 +10,16 @@ import reducers from './reducers';
 import LoginForm from './components/LoginForm';
 import ReduxThunk from 'redux-thunk';
 
+// AWS Library
+import Amplify from 'aws-amplify';
+import { Auth } from 'aws-amplify';
+import aws_export from './aws-exports';
+
+Amplify.configure(aws_export);
+
 // to disable the warning yellow box
 console.disableYellowBox = true;
+
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 export default class App extends Component {
@@ -19,8 +27,29 @@ export default class App extends Component {
         super(props);
         this.state = {
             loggedIn: null,
-        }
+        };
         this.store = createStore(reducers);
+    }
+
+    componentDidMount() {
+        // const for dummy user
+        Auth.signUp({
+            username: 'JanHitler',
+            password: 'J@n1234567',
+            attributes: {
+                email: 'jan.feuerbach@millenuum.com',  // optional
+                phone_number: '+821034021928',      // optional - E.164 number convention
+                // other custom attributes
+            },
+            validationData: []  //optional
+        })
+            .then(data => console.log(data))
+            .catch(err => alert(err.message));
+
+        // Collect confirmation code, then
+        // Auth.confirmSignUp('fathanganteng', code)
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err));
     }
 
     componentWillMount() {
