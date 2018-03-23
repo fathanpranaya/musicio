@@ -1,6 +1,14 @@
 # Music I/O Mobile
 `react-native` `android` `ios`
 
+## Dependencies
+
+* navigation: ```react-native-router-flux```
+* state handling: ```redux``` ```react-redux```
+* redux async middleware: ```redux-thunk```
+* database: ```firebase```
+
+
 ## Getting Started
 
 ### macOS

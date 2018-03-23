@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import LoginPage from './components/login_screen/LoginPage';
 import firebase from 'firebase'
 import HomePage from "./components/home_screen/HomePage";
 import { Spinner, Header } from "./components/common";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
+import LoginForm from './components/LoginForm';
+import ReduxThunk from 'redux-thunk';
 
 // to disable the warning yellow box
 console.disableYellowBox = true;
 
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -44,10 +47,10 @@ export default class App extends Component {
     _renderContent() {
         switch (this.state.loggedIn) {
             case true:
-                return <HomePage/>
+                return <HomePage/>;
 
             case false:
-                return <LoginPage/>
+                return <LoginPage/>;
             default:
                 return (
                     <View>
@@ -60,12 +63,8 @@ export default class App extends Component {
 
     render() {
         return (
-            <Provider store={this.store}>
-                <View>
-                    <Text>
-                        Hello!
-                    </Text>
-                </View>
+            <Provider store={store}>
+                <LoginForm/>
             </Provider>
         );
     }

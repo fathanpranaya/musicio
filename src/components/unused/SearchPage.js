@@ -91,7 +91,7 @@ export default class SearchPage extends Component<{}> {
                         title='Go'
                     />
                 </View>
-                <Image source={require('../images/logo.png')} style={styles.image}/>
+                <Image source={require('../../images/logo.png')} style={styles.image}/>
                 {spinner}
                 <Text style={styles.description}>{this.state.message}</Text>
             </View>
