@@ -33,18 +33,18 @@ export default class App extends Component {
 
     componentDidMount() {
         // const for dummy user
-        Auth.signUp({
-            username: 'JanHitler',
-            password: 'J@n1234567',
-            attributes: {
-                email: 'jan.feuerbach@millenuum.com',  // optional
-                phone_number: '+821034021928',      // optional - E.164 number convention
-                // other custom attributes
-            },
-            validationData: []  //optional
-        })
-            .then(data => console.log(data))
-            .catch(err => alert(err.message));
+        // Auth.signUp({
+        //     username: 'JanHitler',
+        //     password: 'J@n1234567',
+        //     attributes: {
+        //         email: 'jan.feuerbach@millenuum.com',  // optional
+        //         phone_number: '+821034021928',      // optional - E.164 number convention
+        //         // other custom attributes
+        //     },
+        //     validationData: []  //optional
+        // })
+        //     .then(data => console.log(data))
+        //     .catch(err => alert(err.message));
 
         // Collect confirmation code, then
         // Auth.confirmSignUp('fathanganteng', code)
@@ -79,7 +79,7 @@ export default class App extends Component {
                 return <HomePage/>;
 
             case false:
-                return <LoginPage/>;
+                return <LoginForm/>;
             default:
                 return (
                     <View>
@@ -93,7 +93,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <LoginForm/>
+                {this._renderContent()}
             </Provider>
         );
     }

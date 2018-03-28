@@ -14,7 +14,7 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <Header>Home</Header>
                 <View style={{height: 50}}>
                     <Button

@@ -31,7 +31,7 @@ export default class AlbumList extends Component {
 
     render() {
         return (
-            <ScrollView style={{marginBottom: 220}}>
+            <ScrollView>
                 {this._renderAlbums()}
             </ScrollView>
         );
