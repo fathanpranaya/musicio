@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from "./common";
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Image } from 'react-native';
+import axios from 'axios';
 
 class LoginForm extends Component {
     constructor(props) {
         super(props);
     }
 
-    componentWillMount() {
+    static navigationOptions = {
+        title: 'Please Login',
+    };
 
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-
+    componentDidMount() {
+        axios('http://localhost:3000/cognito/')
+            .then((res) => console.log(res))
+            .catch(err => console.log('Cognito API Error: ', err));
     }
 
     onEmailChange(text) {

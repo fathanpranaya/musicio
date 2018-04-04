@@ -1,15 +1,29 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Scene, Router } from 'react-native-router-flux';
+import LoginForm from "./components/LoginScreen";
+import { StackNavigator, SwitchNavigator } from 'react-navigation';
+import AuthLoadingScreen from "./components/AuthLoadingScreen";
+import EmployeeListScreen from "./components/EmployeeListScreen";
+import HomeScreen from "./components/HomeScreen";
 
-const RouterComponent = props => {
-    return (
-        <View>
+const AppStack = StackNavigator({
+    Home: {
+        screen: HomeScreen
+    }
+});
 
-        </View>
-    );
-};
+const AuthStack = StackNavigator({
+    Login: {
+        screen: LoginForm
+    }
+});
 
-const styles = StyleSheet.create({});
-
-export default RouterComponent;
+export default SwitchNavigator(
+    {
+        App: AppStack,
+        Auth: AuthStack,
+        AuthLoading: AuthLoadingScreen
+    },
+    {
+        initialRouteName: 'App',
+    }
+);

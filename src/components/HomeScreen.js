@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import AlbumList from './AlbumList';
-import { Header, Button } from "../common";
+import AlbumList from './home_screen/AlbumList';
+import { Button } from "./common/index";
 import firebase from "firebase";
 
 export default class HomePage extends Component {
@@ -12,13 +12,23 @@ export default class HomePage extends Component {
         this.state = {};
     }
 
+    static navigationOptions = {
+        title: 'Home'
+    };
+
+    onSignOutButtonPress() {
+        firebase.auth().signOut()
+            .then(res => this.props.navigation.navigate('Auth'))
+            .catch(err => console.log('Firebase Error: ', err));
+
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
-                <Header>Home</Header>
                 <View style={{height: 50}}>
                     <Button
-                        onPress={() => firebase.auth().signOut()}>
+                        onPress={() => this.onSignOutButtonPress()}>
                         Log out
                     </Button>
                 </View>

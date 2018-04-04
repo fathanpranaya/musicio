@@ -7,16 +7,16 @@
     "test": "jest"
   },
   "dependencies": {
-    "aws-amplify": "^0.2.11",
+    "aws-amplify": "^0.2.14",
     "aws-amplify-react-native": "^0.2.7",
     "axios": "^0.18.0",
-    "firebase": "^4.11.0",
-    "npm": "^5.7.1",
-    "react": "^16.3.0-alpha.1",
+    "firebase": "^4.12.0",
+    "npm": "^5.8.0",
+    "react": "^16.3.0-rc.0",
     "react-native": "0.54.0",
     "react-native-aws-cognito-js": "0.0.7",
-    "react-native-router-flux": "^4.0.0-beta.28",
     "react-native-vector-icons": "^4.5.0",
+    "react-navigation": "^1.5.8",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
@@ -24,10 +24,10 @@
   "devDependencies": {
     "babel-jest": "22.4.1",
     "babel-preset-react-native": "4.0.0",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "jest": "22.4.2",
-    "react-test-renderer": "^16.3.0-alpha.1"
+    "react-test-renderer": "^16.3.0-rc.0"
   },
   "jest": {
     "preset": "react-native"

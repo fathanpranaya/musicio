@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import LoginPage from './components/login_screen/LoginPage';
+import LoginPage from './components/unused/login_screen/LoginPage';
 import firebase from 'firebase'
-import HomePage from "./components/home_screen/HomePage";
+import HomePage from "./components/HomeScreen";
 import { Spinner, Header } from "./components/common";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/LoginScreen';
 import ReduxThunk from 'redux-thunk';
+import Router from "./Router";
 
 // AWS Library
-import Amplify from 'aws-amplify';
-import { Auth } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import aws_export from './aws-exports';
 
 Amplify.configure(aws_export);
@@ -32,24 +32,9 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        // const for dummy user
-        // Auth.signUp({
-        //     username: 'JanHitler',
-        //     password: 'J@n1234567',
-        //     attributes: {
-        //         email: 'jan.feuerbach@millenuum.com',  // optional
-        //         phone_number: '+821034021928',      // optional - E.164 number convention
-        //         // other custom attributes
-        //     },
-        //     validationData: []  //optional
-        // })
-        //     .then(data => console.log(data))
-        //     .catch(err => alert(err.message));
-
-        // Collect confirmation code, then
-        // Auth.confirmSignUp('fathanganteng', code)
-        //     .then(data => console.log(data))
-        //     .catch(err => console.log(err));
+        Auth.signIn('fathanpranaya', 'F@th@n1994')
+            .then(user => console.log('Cognito Token: ', user.signInUserSession.accessToken.jwtToken))
+            .catch(err => console.log(err));
     }
 
     componentWillMount() {
@@ -93,7 +78,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                {this._renderContent()}
+                <Router/>
             </Provider>
         );
     }
