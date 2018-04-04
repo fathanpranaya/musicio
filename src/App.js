@@ -10,6 +10,7 @@ import reducers from './reducers';
 import LoginForm from './components/LoginScreen';
 import ReduxThunk from 'redux-thunk';
 import Router from "./Router";
+import SocialLoginScreen from './components/SocialLoginScreen';
 
 // AWS Library
 import Amplify, { Auth } from 'aws-amplify';
@@ -77,9 +78,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <Router/>
-            </Provider>
+            <SocialLoginScreen/>
         );
     }
 }

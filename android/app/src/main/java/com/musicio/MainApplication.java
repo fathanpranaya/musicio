@@ -3,6 +3,9 @@ package com.musicio;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.airlabsinc.RNAWSCognitoPackage;
+import com.amazonaws.amplify.pushnotification.RNPushNotificationPackage;
 import com.amazonaws.RNAWSCognitoPackage;
 import com.airlabsinc.RNAWSCognitoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +29,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RNAWSCognitoPackage(),
+            new RNPushNotificationPackage(),
             new RNAWSCognitoPackage(),
             new RNAWSCognitoPackage(),
             new VectorIconsPackage()

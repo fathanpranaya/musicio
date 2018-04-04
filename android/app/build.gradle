@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-aws-cognito-js')
+    compile project(':aws-amplify-react-native')
     compile project(':amazon-cognito-identity-js')
     compile project(':react-native-aws-cognito-js')
     compile project(':react-native-vector-icons')
